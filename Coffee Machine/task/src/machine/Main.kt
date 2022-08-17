@@ -13,7 +13,6 @@ const val notWater = "Sorry, not enough water!\n"
 const val notCoffee = "Sorry, not enough coffee beans!\n"
 const val notCups = "Sorry, not enough cups!\n"
 const val notMilk = "Sorry, not enough milk!\n"
-
 //functions
 fun readOrder () {
     println("Write how many ml of water the coffee machine has:")
@@ -45,11 +44,12 @@ fun calculateOrder() {
     } else
         println("No, I can make only $cupCounter cups of coffee")
 }
-fun buy (){
+//States
+fun buy () {
     println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino," +
             " back - to main menu:")
     val choice = readln().toString()
-    if (choice == "1"){
+    if (choice == "1") {
         if (waterCap >= 250 && beansCap >= 16 && cupsOrder > 0){
             println(enothResaurces)
             waterCap -= 250
@@ -119,7 +119,7 @@ fun fill () {
     val cupsAdd = readln().toInt()
     cupsOrder += cupsAdd
 }
-fun take (){
+fun take () {
     println("I gave you $$money\n")
     money = 0
 }
@@ -130,29 +130,15 @@ fun remaining () {
 }
 // main
 fun main() {
-    while (exit){
+    while (exit) {
         println("Write action (buy, fill, take, remaining, exit):")
-        val action = readln().toString()
-        if (action == "exit")
-            exit = false
-        else if (action == "buy")
-            buy()
-        else if (action == "fill")
-            fill()
-        else if (action == "take")
-            take()
-        else if (action == "remaining")
-            remaining()
-        else
-            println(false)
+        when(readln().toString()) {
+            "buy" -> buy()
+            "fill" -> fill()
+            "take" -> take()
+            "remaining" -> remaining()
+            "exit" -> exit = false
+            else -> println(false)
+        }
     }
-
-/*  println("Starting to make a coffee")
-    println("Grinding coffee beans")
-    println("Boiling water")
-    println("Mixing boiled water with crushed coffee beans")
-    println("Pouring coffee into the cup")
-    println("Pouring some milk into the cup")
-    println("Coffee is ready!")
- */
 }

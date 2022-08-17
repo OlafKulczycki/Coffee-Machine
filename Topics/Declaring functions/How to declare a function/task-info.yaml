@@ -1,0 +1,26 @@
+type: choice
+is_multiple_choice: false
+options:
+- text: 'sum(a: Int, b: Int): Int = a + b'
+- text: 'fun sum(a: Int, b: Int): Int = a + b'
+- text: 'def sum(a: Int, b: Int): Int = a + b'
+- text: 'function sum(a: Int, b: Int): Int = a + b'
+files:
+- name: src/Main.kt
+  visible: true
+  text: |
+    // You can experiment here, it won’t be checked
+
+    fun main(args: Array<String>) {
+      // put your code here
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/4581#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Fri, 12 Aug 2022 12:41:46 UTC
+record: -1
+selected_options:
+- 1
+local_check: false
